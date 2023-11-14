@@ -30,7 +30,7 @@ RUN python -m pip install . -c constraints.txt && \
     python -m isort src/ --check && \
     python -m black src/ --check --quiet && \
     python -m pylint src/ --disable=C0114,C0116,R1705 && \
-    python -m bandit -c pyproject.toml -r src/  --quiet && \
+    python -m bandit -r src/  --quiet && \
     python -m pip wheel --wheel-dir dist/ . -c constraints.txt
 
 FROM python:3.11.2-slim-bullseye
