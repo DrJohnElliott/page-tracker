@@ -1,4 +1,4 @@
-# pyproject.toml
+# web/pyproject.toml
 
 [build-system]
 requires = ["setuptools>=67.0.0", "wheel"]
@@ -9,6 +9,7 @@ name = "page-tracker"
 version = "1.0.0"
 dependencies = [
     "Flask",
+    "gunicorn",
     "redis",
 ]
 
