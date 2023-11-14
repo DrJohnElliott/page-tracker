@@ -3,8 +3,6 @@
 services:
   redis-service:
     image: "redis:7.0.10-bullseye"
-    ports:
-      - "6379:6379"
     networks:
       - backend-network
     volumes:
@@ -20,7 +18,7 @@ services:
     depends_on:
       - redis-service
     command: "gunicorn page_tracker.app:app --bind 0.0.0.0:8000"
-    test-service:
+  test-service:
     profiles:
       - testing
     build:
@@ -39,11 +37,8 @@ services:
       --redis-url $$REDIS_URL
       --flask-url $$FLASK_URL'
 
-
-
 networks:
     backend-network:
-
 
 volumes:
   redis-volume:
