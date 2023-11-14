@@ -25,7 +25,3 @@ dev = [
     "requests",
 ]
 
-[tool.bandit]
-exclude_dirs = ["test"]
-
-skips = ["B201", "B104"]
