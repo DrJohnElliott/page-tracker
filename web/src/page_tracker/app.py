@@ -7,7 +7,8 @@ from flask import Flask, render_template
 from redis import Redis, RedisError
 
 app = Flask(__name__)
-from flask_autodoc.autodoc import Autodoc 
+
+from flask_autodoc import Autodoc
 
 auto = Autodoc(app) 
 
