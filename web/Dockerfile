@@ -12,9 +12,10 @@ RUN useradd --create-home jaellio4
 USER jaellio4
 WORKDIR /home/jaellio4
 
-ENV VIRTUALENV=/home/jaellio4/venv
-RUN python3 -m venv $VIRTUALENV
-ENV PATH="$VIRTUALENV/bin:$PATH"
+# ENV VIRTUALENV=/home/jaellio4/venv
+# RUN python3 -m venv $VIRTUALENV
+# ENV PATH="$VIRTUALENV/bin:$PATH"
+ENV PATH=/venv/bin:$PATH
 
 COPY --chown=jaellio4 pyproject.toml constraints.txt ./
 

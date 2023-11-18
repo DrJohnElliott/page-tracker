@@ -3,11 +3,14 @@
 import os
 from functools import cache
 
-from flask import Flask
+from flask import Flask, render_template
 from redis import Redis, RedisError
 
 app = Flask(__name__)
 
+from flask_autodoc import Autodoc
+
+auto = Autodoc(app) 
 
 @app.get("/")
 def index():
@@ -16,7 +19,8 @@ def index():
     except RedisError:
         app.logger.exception("Redis error")
         return "Sorry, something went wrong \N{thinking face}", 500
-    return f"This page has been seen {page_views} times."
+    page_messages = f"This page has been seen {page_views} times."
+    return render_template('index.html'), page_messages
 
 
 @cache

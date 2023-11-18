@@ -11,6 +11,7 @@ dependencies = [
     "Flask",
     "gunicorn",
     "redis",
+    "flask-autodoc",
 ]
 
 [project.optional-dependencies]
@@ -23,5 +24,6 @@ dev = [
     "pytest",
     "pytest-timeout",
     "requests",
+    
 ]
 
